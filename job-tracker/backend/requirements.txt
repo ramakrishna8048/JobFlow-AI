@@ -1,0 +1,3 @@
+# Python dependencies for AWS Lambda functions
+boto3
+google-api-python-client
