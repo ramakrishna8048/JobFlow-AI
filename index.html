@@ -1,0 +1,2714 @@
+        // Enhanced global variables
+        let mouseX = 0, mouseY = 0;
+        let particles = [];
+        let connections = [];
+        let isSpacePressed = false;
+        let isShiftPressed = false;
+        let lastClickTime = 0;
+        let clickCount = 0;
+        let trailParticles = [];
+        let frameCount = 0;
+        let lastFpsTime = Date.now();
+
+        // Create ultimate interactive background
+        function createBackgroundGraphics() {
+            createInteractiveParticles();
+            createQuantumParticles();
+            createTechIcons();
+            createDevOpsWorkflow();
+            createAIIntegrationDiagrams();
+            createTechFlowLines();
+            createDataNodes();
+            createDataStreams();
+            createNeuralNetwork();
+            createMatrixRain();
+            initializeAdvancedInteractions();
+        }
+
+        // Create quantum particles
+        function createQuantumParticles() {
+            const container = document.getElementById('interactiveParticles');
+            
+            for (let i = 0; i < 50; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'quantum-particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 6 + 's';
+                particle.style.animationDuration = (Math.random() * 4 + 4) + 's';
+                container.appendChild(particle);
+            }
+        }
+
+        // Create data streams
+        function createDataStreams() {
+            const container = document.getElementById('techFlowLines');
+            
+            for (let i = 0; i < 20; i++) {
+                const stream = document.createElement('div');
+                stream.className = 'data-stream';
+                stream.style.left = Math.random() * 100 + '%';
+                stream.style.animationDelay = Math.random() * 3 + 's';
+                stream.style.animationDuration = (Math.random() * 2 + 2) + 's';
+                container.appendChild(stream);
+            }
+        }
+
+        // Create matrix rain effect
+        function createMatrixRain() {
+            const container = document.getElementById('matrixRain');
+            const chars = '01ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+            
+            for (let i = 0; i < 30; i++) {
+                const column = document.createElement('div');
+                column.className = 'matrix-column';
+                column.style.left = Math.random() * 100 + '%';
+                column.style.animationDelay = Math.random() * 8 + 's';
+                column.style.animationDuration = (Math.random() * 4 + 6) + 's';
+                
+                let columnText = '';
+                for (let j = 0; j < 20; j++) {
+                    columnText += chars[Math.floor(Math.random() * chars.length)] + '<br>';
+                }
+                column.innerHTML = columnText;
+                
+                container.appendChild(column);
+            }
+        }
+
+        // Enhanced particle system
+        function createInteractiveParticles() {
+            const container = document.getElementById('interactiveParticles');
+            particles = [];
+            
+            for (let i = 0; i < 200; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                
+                const x = Math.random() * window.innerWidth;
+                const y = Math.random() * window.innerHeight;
+                
+                particle.style.left = x + 'px';
+                particle.style.top = y + 'px';
+                
+                particles.push({
+                    element: particle,
+                    x: x,
+                    y: y,
+                    originalX: x,
+                    originalY: y,
+                    vx: (Math.random() - 0.5) * 0.8,
+                    vy: (Math.random() - 0.5) * 0.8,
+                    energy: Math.random() * 100,
+                    connections: []
+                });
+                
+                container.appendChild(particle);
+            }
+        }
+
+        // Enhanced tech icons with orbital effects
+        function createTechIcons() {
+            const iconsContainer = document.getElementById('techIcons');
+            const devOpsIcons = [
+                'fab fa-docker', 'fab fa-aws', 'fab fa-github', 'fab fa-jenkins',
+                'fas fa-server', 'fas fa-database', 'fas fa-cloud', 'fas fa-cogs',
+                'fab fa-python', 'fas fa-chart-line', 'fas fa-code-branch', 'fas fa-robot',
+                'fas fa-network-wired', 'fas fa-shield-alt', 'fas fa-laptop-code', 'fas fa-microchip',
+                'fab fa-kubernetes', 'fab fa-gitlab', 'fas fa-brain', 'fas fa-project-diagram',
+                'fab fa-npm', 'fab fa-react', 'fas fa-infinity', 'fas fa-satellite'
+            ];
+
+            for (let i = 0; i < 30; i++) {
+                const icon = document.createElement('div');
+                icon.className = 'tech-icon';
+                icon.innerHTML = `<i class="${devOpsIcons[i % devOpsIcons.length]}"></i>`;
+                icon.style.left = Math.random() * 95 + '%';
+                icon.style.top = Math.random() * 95 + '%';
+                icon.style.animationDelay = Math.random() * 25 + 's';
+                icon.style.animationDuration = (Math.random() * 15 + 20) + 's';
+                
+                // Enhanced click interaction
+                icon.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    this.classList.add('orbital');
+                    createEnergyPulse(e.clientX, e.clientY);
+                    createTrailBurst(e.clientX, e.clientY);
+                    setTimeout(() => this.classList.remove('orbital'), 3000);
+                });
+                
+                iconsContainer.appendChild(icon);
+            }
+        }
+
+        // Initialize advanced interactions
+        function initializeAdvancedInteractions() {
+            setupAdvancedMouseTracking();
+            setupAdvancedKeyboardInteractions();
+            setupParticlePhysics();
+            setupPerformanceMonitoring();
+            showStatusIndicators();
+            startScanLine();
+        }
+
+        // Advanced mouse tracking
+        function setupAdvancedMouseTracking() {
+            const mouseTrail = document.getElementById('mouseTrail');
+            const bgContainer = document.getElementById('bgContainer');
+            let trailTimeout;
+            
+            document.addEventListener('mousemove', function(e) {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+                
+                // Update mouse trail
+                mouseTrail.style.left = (mouseX - 15) + 'px';
+                mouseTrail.style.top = (mouseY - 15) + 'px';
+                mouseTrail.style.opacity = '1';
+                
+                // Create trail particles
+                if (Math.random() < 0.3) {
+                    createTrailParticle(mouseX, mouseY);
+                }
+                
+                // Dynamic background gradient
+                const xPercent = (mouseX / window.innerWidth) * 100;
+                const yPercent = (mouseY / window.innerHeight) * 100;
+                bgContainer.style.setProperty('--mouse-x', xPercent + '%');
+                bgContainer.style.setProperty('--mouse-y', yPercent + '%');
+                
+                // Enhanced parallax
+                updateAdvancedParallax(mouseX, mouseY);
+                
+                // Attract particles with physics
+                attractParticlesAdvanced(mouseX, mouseY);
+                
+                clearTimeout(trailTimeout);
+                trailTimeout = setTimeout(() => {
+                    mouseTrail.style.opacity = '0.3';
+                }, 100);
+            });
+            
+            // Enhanced click effects
+            let clickTimeout;
+            document.addEventListener('click', function(e) {
+                const currentTime = Date.now();
+                
+                if (currentTime - lastClickTime < 300) {
+                    clickCount++;
+                } else {
+                    clickCount = 1;
+                }
+                
+                lastClickTime = currentTime;
+                
+                clearTimeout(clickTimeout);
+                clickTimeout = setTimeout(() => {
+                    if (clickCount === 1) {
+                        createMegaRipple(e.clientX, e.clientY);
+                    } else if (clickCount >= 2) {
+                        createSupernova(e.clientX, e.clientY);
+                        triggerElectromagneticField();
+                    }
+                    clickCount = 0;
+                }, 300);
+            });
+        }
+
+        // Advanced keyboard interactions
+        function setupAdvancedKeyboardInteractions() {
+            document.addEventListener('keydown', function(e) {
+                if (e.code === 'Space') {
+                    e.preventDefault();
+                    isSpacePressed = true;
+                    activateRandomElements();
+                    triggerAdvancedWaveEffect();
+                }
+                
+                if (e.code === 'ShiftLeft' || e.code === 'ShiftRight') {
+                    isShiftPressed = true;
+                    activateMatrixMode();
+                }
+                
+                // Secret combinations
+                if (e.code === 'KeyT' && e.ctrlKey) {
+                    e.preventDefault();
+                    togglePerformanceMonitor();
+                }
+            });
+            
+            document.addEventListener('keyup', function(e) {
+                if (e.code === 'Space') {
+                    isSpacePressed = false;
+                }
+                
+                if (e.code === 'ShiftLeft' || e.code === 'ShiftRight') {
+                    isShiftPressed = false;
+                    deactivateMatrixMode();
+                }
+            });
+        }
+
+        // Advanced particle physics
+        function setupParticlePhysics() {
+            function animateParticlesAdvanced() {
+                frameCount++;
+                
+                particles.forEach((particle, index) => {
+                    // Update position with physics
+                    particle.x += particle.vx;
+                    particle.y += particle.vy;
+                    
+                    // Boundary physics with bounce
+                    if (particle.x < 0 || particle.x > window.innerWidth) {
+                        particle.vx *= -0.8;
+                        particle.x = Math.max(0, Math.min(window.innerWidth, particle.x));
+                    }
+                    if (particle.y < 0 || particle.y > window.innerHeight) {
+                        particle.vy *= -0.8;
+                        particle.y = Math.max(0, Math.min(window.innerHeight, particle.y));
+                    }
+                    
+                    // Connect nearby particles
+                    particles.forEach((otherParticle, otherIndex) => {
+                        if (index !== otherIndex) {
+                            const distance = Math.sqrt(
+                                Math.pow(particle.x - otherParticle.x, 2) + 
+                                Math.pow(particle.y - otherParticle.y, 2)
+                            );
+                            
+                            if (distance < 100 && Math.random() < 0.01) {
+                                createParticleConnection(particle, otherParticle);
+                            }
+                        }
+                    });
+                    
+                    // Update DOM
+                    particle.element.style.left = particle.x + 'px';
+                        // Global variables for interactivity
+        let mouseX = 0, mouseY = 0;
+        let particles = [];
+        let connections = [];
+        let isSpacePressed = false;
+
+        // Create comprehensive interactive background
+        function createBackgroundGraphics() {
+            createInteractiveParticles();
+            createTechIcons();
+            createDevOpsWorkflow();
+            createAIIntegrationDiagrams();
+            createTechFlowLines();
+            createDataNodes();
+            createNeuralNetwork();
+            initializeInteractions();
+        }
+
+        // Create interactive particles that respond to mouse
+        function createInteractiveParticles() {
+            const container = document.getElementById('interactiveParticles');
+            particles = [];
+            
+            for (let i = 0; i < 150; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                
+                const x = Math.random() * window.innerWidth;
+                const y = Math.random() * window.innerHeight;
+                
+                particle.style.left = x + 'px';
+                particle.style.top = y + 'px';
+                
+                particles.push({
+                    element: particle,
+                    x: x,
+                    y: y,
+                    originalX: x,
+                    originalY: y,
+                    vx: (Math.random() - 0.5) * 0.5,
+                    vy: (Math.random() - 0.5) * 0.5
+                });
+                
+                container.appendChild(particle);
+            }
+        }
+
+        // Enhanced tech icons with click interactions
+        function createTechIcons() {
+            const iconsContainer = document.getElementById('techIcons');
+            const devOpsIcons = [
+                'fab fa-docker', 'fab fa-aws', 'fab fa-github', 'fab fa-jenkins',
+                'fas fa-server', 'fas fa-database', 'fas fa-cloud', 'fas fa-cogs',
+                'fab fa-python', 'fas fa-chart-line', 'fas fa-code-branch', 'fas fa-robot',
+                'fas fa-network-wired', 'fas fa-shield-alt', 'fas fa-laptop-code', 'fas fa-microchip',
+                'fab fa-kubernetes', 'fab fa-gitlab', 'fas fa-brain', 'fas fa-project-diagram'
+            ];
+
+            for (let i = 0; i < 25; i++) {
+                const icon = document.createElement('div');
+                icon.className = 'tech-icon';
+                icon.innerHTML = `<i class="${devOpsIcons[i % devOpsIcons.length]}"></i>`;
+                icon.style.left = Math.random() * 95 + '%';
+                icon.style.top = Math.random() * 95 + '%';
+                icon.style.animationDelay = Math.random() * 25 + 's';
+                icon.style.animationDuration = (Math.random() * 15 + 20) + 's';
+                
+                // Add click interaction
+                icon.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    this.classList.add('spinning');
+                    createRipple(e.clientX, e.clientY);
+                    setTimeout(() => this.classList.remove('spinning'), 2000);
+                });
+                
+                iconsContainer.appendChild(icon);
+            }
+        }
+
+        // Enhanced DevOps workflow with interactions
+        function createDevOpsWorkflow() {
+            const container = document.getElementById('devopsBoxes');
+            const workflowSteps = ['BUILD', 'TEST', 'DEPLOY', 'MONITOR', 'CI/CD', 'SCALE', 'LOG', 'ALERT'];
+            
+            for (let i = 0; i < 12; i++) {
+                const box = document.createElement('div');
+                box.className = 'workflow-box';
+                box.style.left = Math.random() * 90 + '%';
+                box.style.top = Math.random() * 90 + '%';
+                box.style.animationDelay = Math.random() * 15 + 's';
+                box.style.animationDuration = (Math.random() * 10 + 12) + 's';
+                
+                box.innerHTML = `<div style="font-size: 8px; color: rgba(153, 153, 153, 0.8); text-align: center; padding: 12px 4px; font-weight: bold;">${workflowSteps[i % workflowSteps.length]}</div>`;
+                
+                // Add click interaction
+                box.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    this.classList.add('clicked');
+                    activateNearbyElements(e.clientX, e.clientY);
+                    setTimeout(() => this.classList.remove('clicked'), 600);
+                });
+                
+                container.appendChild(box);
+            }
+        }
+
+        // Enhanced AI Integration with hover effects
+        function createAIIntegrationDiagrams() {
+            const container = document.getElementById('aiIntegration');
+            
+            for (let i = 0; i < 6; i++) {
+                const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+                svg.setAttribute('class', 'ml-pipeline');
+                svg.style.left = Math.random() * 70 + '%';
+                svg.style.top = Math.random() * 70 + '%';
+                svg.style.animationDelay = Math.random() * 10 + 's';
+                svg.style.transform = `rotate(${Math.random() * 360}deg)`;
+                svg.style.pointerEvents = 'all';
+                
+                svg.innerHTML = `
+                    <defs>
+                        <marker id="arrowhead${i}" markerWidth="10" markerHeight="7" 
+                         refX="9" refY="3.5" orient="auto">
+                            <polygon points="0 0, 10 3.5, 0 7" fill="rgba(153, 153, 153, 0.4)" />
+                        </marker>
+                    </defs>
+                    <path d="M 20,75 Q 50,25 100,75 T 200,75" stroke="rgba(153, 153, 153, 0.4)" 
+                          stroke-width="2" fill="none" marker-end="url(#arrowhead${i})"/>
+                    <path d="M 100,75 Q 150,50 200,25" stroke="rgba(102, 102, 102, 0.3)" 
+                          stroke-width="1" fill="none"/>
+                    <path d="M 100,75 Q 150,100 200,125" stroke="rgba(102, 102, 102, 0.3)" 
+                          stroke-width="1" fill="none"/>
+                    <circle cx="50" cy="50" r="4" fill="none" stroke="rgba(153, 153, 153, 0.4)" stroke-width="1"/>
+                    <circle cx="100" cy="75" r="6" fill="none" stroke="rgba(153, 153, 153, 0.5)" stroke-width="1"/>
+                    <circle cx="150" cy="100" r="4" fill="none" stroke="rgba(153, 153, 153, 0.4)" stroke-width="1"/>
+                    <circle cx="200" cy="75" r="5" fill="none" stroke="rgba(153, 153, 153, 0.4)" stroke-width="1"/>
+                `;
+                
+                // Add hover effect
+                svg.addEventListener('mouseenter', function() {
+                    this.classList.add('highlighted');
+                });
+                
+                svg.addEventListener('mouseleave', function() {
+                    this.classList.remove('highlighted');
+                });
+                
+                container.appendChild(svg);
+            }
+        }
+
+        // Enhanced flow lines with activation
+        function createTechFlowLines() {
+            const container = document.getElementById('techFlowLines');
+            
+            // Horizontal flow lines
+            for (let i = 0; i < 15; i++) {
+                const line = document.createElement('div');
+                line.className = 'flow-line';
+                line.style.left = Math.random() * 70 + '%';
+                line.style.top = Math.random() * 100 + '%';
+                line.style.width = (Math.random() * 200 + 100) + 'px';
+                line.style.animationDelay = Math.random() * 8 + 's';
+                line.style.animationDuration = (Math.random() * 4 + 6) + 's';
+                container.appendChild(line);
+            }
+            
+            // Vertical flow lines
+            for (let i = 0; i < 10; i++) {
+                const line = document.createElement('div');
+                line.className = 'flow-line vertical';
+                line.style.left = Math.random() * 100 + '%';
+                line.style.top = Math.random() * 70 + '%';
+                line.style.height = (Math.random() * 150 + 100) + 'px';
+                line.style.animationDelay = Math.random() * 8 + 's';
+                line.style.animationDuration = (Math.random() * 4 + 6) + 's';
+                container.appendChild(line);
+            }
+        }
+
+        // Create interactive data nodes
+        function createDataNodes() {
+            const container = document.getElementById('dataNodes');
+            
+            for (let i = 0; i < 30; i++) {
+                const node = document.createElement('div');
+                node.className = 'data-node interactive';
+                node.style.left = Math.random() * 95 + '%';
+                node.style.top = Math.random() * 95 + '%';
+                node.style.animationDelay = Math.random() * 6 + 's';
+                node.style.animationDuration = (Math.random() * 3 + 4) + 's';
+                
+                // Add different node types
+                if (i % 3 === 0) {
+                    node.style.borderRadius = '2px';
+                    node.style.transform = 'rotate(45deg)';
+                } else if (i % 3 === 1) {
+                    node.style.width = '6px';
+                    node.style.height = '12px';
+                    node.style.borderRadius = '3px';
+                }
+                
+                // Add click interaction
+                node.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    this.classList.add('active');
+                    createDataPulse(e.clientX, e.clientY);
+                    setTimeout(() => this.classList.remove('active'), 2000);
+                });
+                
+                container.appendChild(node);
+            }
+        }
+
+        // Create neural network connections
+        function createNeuralNetwork() {
+            const container = document.getElementById('neuralNetwork');
+            connections = [];
+            
+            for (let i = 0; i < 20; i++) {
+                const connection = document.createElement('div');
+                connection.className = 'neural-connection';
+                
+                const startX = Math.random() * 80;
+                const startY = Math.random() * 80;
+                const endX = Math.random() * 80;
+                const endY = Math.random() * 80;
+                
+                const length = Math.sqrt(Math.pow(endX - startX, 2) + Math.pow(endY - startY, 2));
+                const angle = Math.atan2(endY - startY, endX - startX) * 180 / Math.PI;
+                
+                connection.style.left = startX + '%';
+                connection.style.top = startY + '%';
+                connection.style.width = length + '%';
+                connection.style.transform = `rotate(${angle}deg)`;
+                
+                connections.push(connection);
+                container.appendChild(connection);
+            }
+        }
+
+        // Initialize all interactive features
+        function initializeInteractions() {
+            setupMouseTracking();
+            setupKeyboardInteractions();
+            setupParticleAnimation();
+            showKeyIndicator();
+        }
+
+        // Mouse tracking and trail
+        function setupMouseTracking() {
+            const mouseTrail = document.getElementById('mouseTrail');
+            let trailTimeout;
+            
+            document.addEventListener('mousemove', function(e) {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+                
+                // Update mouse trail
+                mouseTrail.style.left = (mouseX - 10) + 'px';
+                mouseTrail.style.top = (mouseY - 10) + 'px';
+                mouseTrail.style.opacity = '1';
+                
+                // Parallax effect for background elements
+                updateParallaxEffect(mouseX, mouseY);
+                
+                // Attract particles to mouse
+                attractParticles(mouseX, mouseY);
+                
+                clearTimeout(trailTimeout);
+                trailTimeout = setTimeout(() => {
+                    mouseTrail.style.opacity = '0';
+                }, 100);
+            });
+            
+            // Click ripple effect
+            document.addEventListener('click', function(e) {
+                if (e.target === document.body || e.target.classList.contains('bg-container')) {
+                    createRipple(e.clientX, e.clientY);
+                }
+            });
+        }
+
+        // Keyboard interactions
+        function setupKeyboardInteractions() {
+            document.addEventListener('keydown', function(e) {
+                if (e.code === 'Space') {
+                    e.preventDefault();
+                    isSpacePressed = true;
+                    activateRandomElements();
+                    triggerWaveEffect();
+                }
+            });
+            
+            document.addEventListener('keyup', function(e) {
+                if (e.code === 'Space') {
+                    isSpacePressed = false;
+                }
+            });
+        }
+
+        // Particle animation loop
+        function setupParticleAnimation() {
+            function animateParticles() {
+                particles.forEach(particle => {
+                    // Update position
+                    particle.x += particle.vx;
+                    particle.y += particle.vy;
+                    
+                    // Boundary check
+                    if (particle.x < 0 || particle.x > window.innerWidth) particle.vx *= -1;
+                    if (particle.y < 0 || particle.y > window.innerHeight) particle.vy *= -1;
+                    
+                    // Update DOM
+                    particle.element.style.left = particle.x + 'px';
+                    particle.element.style.top = particle.y + 'px';
+                });
+                
+                requestAnimationFrame(animateParticles);
+            }
+            animateParticles();
+        }
+
+        // Create ripple effect
+        function createRipple(x, y) {
+            const ripple = document.createElement('div');
+            ripple.className = 'ripple';
+            ripple.style.left = (x - 150) + 'px';
+            ripple.style.top = (y - 150) + 'px';
+            
+            document.body.appendChild(ripple);
+            
+            setTimeout(() => {
+                document.body.removeChild(ripple);
+            }, 1500);
+        }
+
+        // Create data pulse effect
+        function createDataPulse(x, y) {
+            // Activate nearby neural connections
+            connections.forEach(connection => {
+                if (Math.random() < 0.3) {
+                    connection.classList.add('active');
+                    setTimeout(() => connection.classList.remove('active'), 1000);
+                }
+            });
+        }
+
+        // Attract particles to mouse
+        function attractParticles(mouseX, mouseY) {
+            particles.forEach(particle => {
+                const dx = mouseX - particle.x;
+                const dy = mouseY - particle.y;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+                
+                if (distance < 150) {
+                    const force = (150 - distance) / 150;
+                    particle.vx += (dx / distance) * force * 0.02;
+                    particle.vy += (dy / distance) * force * 0.02;
+                    
+                    // Add attracted class for visual effect
+                    particle.element.classList.add('attracted');
+                } else {
+                    particle.element.classList.remove('attracted');
+                    // Return to original position slowly
+                    particle.vx += (particle.originalX - particle.x) * 0.001;
+                    particle.vy += (particle.originalY - particle.y) * 0.001;
+                }
+                
+                // Apply drag
+                particle.vx *= 0.99;
+                particle.vy *= 0.99;
+            });
+        }
+
+        // Update parallax effect
+        function updateParallaxEffect(mouseX, mouseY) {
+            const xPercent = (mouseX / window.innerWidth - 0.5) * 2;
+            const yPercent = (mouseY / window.innerHeight - 0.5) * 2;
+            
+            // Apply subtle parallax to different layers
+            const circuitPattern = document.getElementById('circuitPattern');
+            if (circuitPattern) {
+                circuitPattern.style.transform = `translate(${xPercent * 10}px, ${yPercent * 10}px)`;
+            }
+            
+            // Enhance circuit pattern on mouse proximity
+            const centerDistance = Math.sqrt(xPercent * xPercent + yPercent * yPercent);
+            circuitPattern.style.opacity = 0.05 + (1 - centerDistance) * 0.05;
+        }
+
+        // Activate nearby elements
+        function activateNearbyElements(x, y) {
+            // Activate flow lines
+            document.querySelectorAll('.flow-line').forEach(line => {
+                if (Math.random() < 0.4) {
+                    line.classList.add('activated');
+                    setTimeout(() => line.classList.remove('activated'), 2000);
+                }
+            });
+        }
+
+        // Activate random elements (space key effect)
+        function activateRandomElements() {
+            // Activate random tech icons
+            document.querySelectorAll('.tech-icon').forEach(icon => {
+                if (Math.random() < 0.3) {
+                    icon.classList.add('spinning');
+                    setTimeout(() => icon.classList.remove('spinning'), 2000);
+                }
+            });
+            
+            // Activate random data nodes
+            document.querySelectorAll('.data-node').forEach(node => {
+                if (Math.random() < 0.4) {
+                    node.classList.add('active');
+                    setTimeout(() => node.classList.remove('active'), 1500);
+                }
+            });
+        }
+
+        // Trigger wave effect
+        function triggerWaveEffect() {
+            // Create multiple ripples
+            for (let i = 0; i < 5; i++) {
+                setTimeout(() => {
+                    createRipple(
+                        Math.random() * window.innerWidth,
+                        Math.random() * window.innerHeight
+                    );
+                }, i * 200);
+            }
+        }
+
+        // Show keyboard indicator
+        function showKeyIndicator() {
+            const indicator = document.getElementById('keyIndicator');
+            setTimeout(() => {
+                indicator.classList.add('show');
+                setTimeout(() => {
+                    indicator.classList.remove('show');
+                }, 5000);
+            }, 2000);
+        }<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rama Krishna Reddy - MLOps Engineer</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-black: #000000;
+            --dark-grey: #1a1a1a;
+            --medium-grey: #333333;
+            --light-grey: #666666;
+            --lighter-grey: #999999;
+            --white: #ffffff;
+            --accent-white: #f8f8f8;
+            --card-bg: rgba(26, 26, 26, 0.95);
+            --border-grey: rgba(255, 255, 255, 0.1);
+            --hover-grey: rgba(255, 255, 255, 0.05);
+            --gradient-primary: linear-gradient(135deg, #333333 0%, #000000 100%);
+            --gradient-accent: linear-gradient(135deg, #666666 0%, #333333 100%);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--primary-black);
+            color: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Advanced Interactive Enhancements */
+        
+        /* Dynamic Background Pulse */
+        .bg-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -10;
+            background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), 
+                       rgba(26, 26, 26, 0.3) 0%, 
+                       rgba(0, 0, 0, 1) 50%);
+            cursor: crosshair;
+            transition: background 0.3s ease;
+        }
+
+        /* Advanced Mouse Trail with Particles */
+        .mouse-trail {
+            position: fixed;
+            width: 30px;
+            height: 30px;
+            border: 2px solid rgba(255, 255, 255, 0.6);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 1000;
+            transition: all 0.05s ease;
+            mix-blend-mode: difference;
+            animation: trailPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes trailPulse {
+            0%, 100% { transform: scale(1); border-color: rgba(255, 255, 255, 0.6); }
+            50% { transform: scale(1.2); border-color: rgba(255, 255, 255, 1); }
+        }
+
+        .mouse-trail::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 6px;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            animation: centerPulse 1s ease-in-out infinite;
+        }
+
+        @keyframes centerPulse {
+            0%, 100% { opacity: 0.5; transform: translate(-50%, -50%) scale(1); }
+            50% { opacity: 1; transform: translate(-50%, -50%) scale(1.5); }
+        }
+
+        /* Dynamic Trail Particles */
+        .trail-particle {
+            position: fixed;
+            width: 4px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 999;
+            animation: trailFade 0.8s ease-out forwards;
+        }
+
+        @keyframes trailFade {
+            0% { opacity: 1; transform: scale(1); }
+            100% { opacity: 0; transform: scale(0); }
+        }
+
+        /* Advanced Ripple Effects */
+        .mega-ripple {
+            position: absolute;
+            border: 3px solid rgba(255, 255, 255, 0.4);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: megaRippleExpand 2.5s ease-out forwards;
+        }
+
+        @keyframes megaRippleExpand {
+            0% {
+                width: 0;
+                height: 0;
+                opacity: 1;
+                border-width: 3px;
+            }
+            50% {
+                opacity: 0.8;
+                border-width: 2px;
+            }
+            100% {
+                width: 600px;
+                height: 600px;
+                opacity: 0;
+                border-width: 1px;
+            }
+        }
+
+        /* Electromagnetic Field Effect */
+        .electromagnetic-field {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -9;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(102, 102, 102, 0.1) 0%, transparent 30%),
+                radial-gradient(circle at 80% 70%, rgba(153, 153, 153, 0.1) 0%, transparent 25%),
+                radial-gradient(circle at 40% 80%, rgba(102, 102, 102, 0.08) 0%, transparent 35%);
+            animation: fieldPulse 8s ease-in-out infinite;
+        }
+
+        @keyframes fieldPulse {
+            0%, 100% { transform: scale(1) rotate(0deg); }
+            33% { transform: scale(1.1) rotate(120deg); }
+            66% { transform: scale(0.9) rotate(240deg); }
+        }
+
+        /* Matrix Rain Effect */
+        .matrix-rain {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -8;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .matrix-column {
+            position: absolute;
+            top: -100px;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            color: rgba(102, 102, 102, 0.6);
+            animation: matrixFall 8s linear infinite;
+        }
+
+        @keyframes matrixFall {
+            0% { top: -100px; opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { top: 100vh; opacity: 0; }
+        }
+
+        /* Quantum Particles */
+        .quantum-particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: quantumFloat 6s ease-in-out infinite;
+        }
+
+        @keyframes quantumFloat {
+            0%, 100% { 
+                transform: translateX(0) translateY(0) scale(1);
+                opacity: 0.3;
+            }
+            25% { 
+                transform: translateX(30px) translateY(-20px) scale(1.5);
+                opacity: 1;
+            }
+            50% { 
+                transform: translateX(-20px) translateY(-40px) scale(0.8);
+                opacity: 0.6;
+            }
+            75% { 
+                transform: translateX(-30px) translateY(20px) scale(1.2);
+                opacity: 0.9;
+            }
+        }
+
+        /* Advanced Data Stream */
+        .data-stream {
+            position: absolute;
+            width: 1px;
+            height: 50px;
+            background: linear-gradient(180deg, transparent, rgba(255, 255, 255, 0.8), transparent);
+            animation: dataFlow 3s linear infinite;
+        }
+
+        @keyframes dataFlow {
+            0% { opacity: 0; transform: translateY(-50px); }
+            50% { opacity: 1; }
+            100% { opacity: 0; transform: translateY(200px); }
+        }
+
+        /* Holographic Grid */
+        .holographic-grid {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -7;
+            opacity: 0;
+            pointer-events: none;
+            background-image: 
+                linear-gradient(0deg, transparent 24%, rgba(102, 102, 102, 0.05) 25%, rgba(102, 102, 102, 0.05) 26%, transparent 27%, transparent 74%, rgba(102, 102, 102, 0.05) 75%, rgba(102, 102, 102, 0.05) 76%, transparent 77%, transparent),
+                linear-gradient(90deg, transparent 24%, rgba(102, 102, 102, 0.05) 25%, rgba(102, 102, 102, 0.05) 26%, transparent 27%, transparent 74%, rgba(102, 102, 102, 0.05) 75%, rgba(102, 102, 102, 0.05) 76%, transparent 77%, transparent);
+            background-size: 50px 50px;
+            animation: gridShift 20s linear infinite;
+            transition: opacity 0.5s ease;
+        }
+
+        @keyframes gridShift {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+
+        /* Enhanced Tech Icons with Orbital Animation */
+        .tech-icon {
+            position: absolute;
+            font-size: 2.5rem;
+            color: rgba(153, 153, 153, 0.6);
+            animation: float-slow 25s ease-in-out infinite;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            pointer-events: all;
+            filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0));
+        }
+
+        .tech-icon:hover {
+            color: rgba(255, 255, 255, 0.9);
+            transform: scale(1.4) rotate(15deg);
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+            animation-play-state: paused;
+            filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.3));
+        }
+
+        .tech-icon.orbital {
+            animation: orbitalSpin 3s ease-in-out;
+        }
+
+        @keyframes orbitalSpin {
+            0% { transform: rotate(0deg) translateX(50px) rotate(0deg) scale(1); }
+            50% { transform: rotate(180deg) translateX(80px) rotate(-180deg) scale(1.5); }
+            100% { transform: rotate(360deg) translateX(50px) rotate(-360deg) scale(1); }
+        }
+
+        /* Energy Pulse Effect */
+        .energy-pulse {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            border: 2px solid rgba(255, 255, 255, 0.6);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: energyExpand 1.5s ease-out forwards;
+        }
+
+        @keyframes energyExpand {
+            0% {
+                width: 10px;
+                height: 10px;
+                opacity: 1;
+                border-width: 3px;
+            }
+            100% {
+                width: 200px;
+                height: 200px;
+                opacity: 0;
+                border-width: 1px;
+            }
+        }
+
+        /* Scan Line Effect */
+        .scan-line {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
+            z-index: -5;
+            opacity: 0;
+            animation: scanMove 4s linear infinite;
+        }
+
+        @keyframes scanMove {
+            0% { top: 0; opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { top: 100vh; opacity: 0; }
+        }
+
+        /* Status Indicator */
+        .status-indicator {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: rgba(26, 26, 26, 0.9);
+            padding: 10px 15px;
+            border-radius: 8px;
+            border: 1px solid rgba(102, 102, 102, 0.3);
+            color: rgba(153, 153, 153, 0.8);
+            font-size: 0.8rem;
+            z-index: 1001;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .status-indicator.active {
+            opacity: 1;
+        }
+
+        /* Performance Monitor */
+        .performance-monitor {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: rgba(26, 26, 26, 0.95);
+            padding: 8px 12px;
+            border-radius: 6px;
+            border: 1px solid rgba(102, 102, 102, 0.2);
+            color: rgba(102, 102, 102, 0.7);
+            font-size: 0.7rem;
+            font-family: 'Courier New', monospace;
+            z-index: 1002;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .performance-monitor.show {
+            opacity: 1;
+        }
+
+        /* Double Click Special Effects */
+        .supernova {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.8) 30%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: supernovaExplosion 2s ease-out forwards;
+        }
+
+        @keyframes supernovaExplosion {
+            0% {
+                width: 20px;
+                height: 20px;
+                opacity: 1;
+                transform: scale(1);
+            }
+            50% {
+                width: 400px;
+                height: 400px;
+                opacity: 0.8;
+                transform: scale(2);
+            }
+            100% {
+                width: 800px;
+                height: 800px;
+                opacity: 0;
+                transform: scale(0.5);
+            }
+        }
+
+        /* Enhanced Circuit Board Pattern with Interactions */
+        .circuit-pattern {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -6;
+            opacity: 0.05;
+            pointer-events: none;
+            background-image: 
+                linear-gradient(90deg, transparent 0%, transparent 45%, rgba(102, 102, 102, 0.4) 50%, transparent 55%, transparent 100%),
+                linear-gradient(0deg, transparent 0%, transparent 45%, rgba(102, 102, 102, 0.4) 50%, transparent 55%, transparent 100%),
+                linear-gradient(45deg, transparent 30%, rgba(153, 153, 153, 0.3) 32%, transparent 34%),
+                linear-gradient(-45deg, transparent 30%, rgba(153, 153, 153, 0.3) 32%, transparent 34%);
+            background-size: 100px 100px, 100px 100px, 80px 80px, 80px 80px;
+            background-position: 0 0, 0 0, 25px 25px, 25px 25px;
+            transition: opacity 0.3s ease;
+        }
+
+        /* Interactive Data Particles */
+        .interactive-particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -8;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: rgba(153, 153, 153, 0.6);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .particle.attracted {
+            background: rgba(255, 255, 255, 0.9);
+            transform: scale(2);
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+
+        /* Interactive Tech Flow Lines */
+        .tech-flow-lines {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -3;
+            opacity: 0.06;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .flow-line {
+            position: absolute;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(102, 102, 102, 0.6), transparent);
+            animation: flowPulse 8s ease-in-out infinite;
+            transition: all 0.3s ease;
+        }
+
+        .flow-line.activated {
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
+            animation: activatedFlow 2s ease-in-out;
+            height: 4px;
+        }
+
+        @keyframes activatedFlow {
+            0% { transform: scaleX(1); opacity: 0.6; }
+            50% { transform: scaleX(1.5); opacity: 1; }
+            100% { transform: scaleX(1); opacity: 0.6; }
+        }
+
+        .flow-line.vertical {
+            width: 2px;
+            height: 200px;
+            background: linear-gradient(180deg, transparent, rgba(102, 102, 102, 0.6), transparent);
+        }
+
+        .flow-line.vertical.activated {
+            background: linear-gradient(180deg, transparent, rgba(255, 255, 255, 0.8), transparent);
+            width: 4px;
+        }
+
+        @keyframes flowPulse {
+            0%, 100% { opacity: 0.3; transform: scaleX(1); }
+            50% { opacity: 0.8; transform: scaleX(1.2); }
+        }
+
+        /* Interactive Data Nodes */
+        .data-nodes {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            opacity: 0.08;
+            pointer-events: none;
+        }
+
+        .data-node {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            border: 1px solid rgba(153, 153, 153, 0.5);
+            border-radius: 50%;
+            background: rgba(102, 102, 102, 0.3);
+            animation: nodePulse 6s ease-in-out infinite;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .data-node.interactive {
+            pointer-events: all;
+        }
+
+        .data-node.active {
+            background: rgba(255, 255, 255, 0.7);
+            border-color: rgba(255, 255, 255, 0.9);
+            transform: scale(2);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+            animation: activeNodePulse 1s ease-in-out infinite;
+        }
+
+        @keyframes activeNodePulse {
+            0%, 100% { box-shadow: 0 0 20px rgba(255, 255, 255, 0.4); }
+            50% { box-shadow: 0 0 30px rgba(255, 255, 255, 0.8); }
+        }
+
+        @keyframes nodePulse {
+            0%, 100% { transform: scale(1); opacity: 0.4; }
+            50% { transform: scale(1.3); opacity: 0.8; }
+        }
+
+        /* Interactive ML Pipeline */
+        .ml-pipeline {
+            position: absolute;
+            width: 300px;
+            height: 150px;
+            opacity: 0.12;
+            stroke: rgba(153, 153, 153, 0.6);
+            stroke-width: 2;
+            fill: none;
+            transition: all 0.5s ease;
+            cursor: pointer;
+        }
+
+        .ml-pipeline.highlighted {
+            opacity: 0.8;
+            stroke: rgba(255, 255, 255, 0.9);
+            stroke-width: 3;
+            filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
+        }
+
+        /* Interactive DevOps Workflow Boxes */
+        .workflow-box {
+            position: absolute;
+            width: 80px;
+            height: 40px;
+            border: 1px solid rgba(102, 102, 102, 0.4);
+            background: rgba(26, 26, 26, 0.6);
+            animation: boxFloat 15s ease-in-out infinite;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            pointer-events: all;
+        }
+
+        .workflow-box:hover {
+            border-color: rgba(255, 255, 255, 0.8);
+            background: rgba(51, 51, 51, 0.8);
+            transform: scale(1.1) translateY(-5px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
+        }
+
+        .workflow-box.clicked {
+            animation: workflowPulse 0.6s ease-out;
+        }
+
+        @keyframes workflowPulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.3); background: rgba(255, 255, 255, 0.2); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes boxFloat {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(2deg); }
+        }
+
+        /* Interactive Tech Icons */
+        .tech-icon {
+            position: absolute;
+            font-size: 2.5rem;
+            color: rgba(153, 153, 153, 0.6);
+            animation: float-slow 25s ease-in-out infinite;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            pointer-events: all;
+        }
+
+        .tech-icon:hover {
+            color: rgba(255, 255, 255, 0.9);
+            transform: scale(1.3) rotate(15deg);
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+            animation-play-state: paused;
+        }
+
+        .tech-icon.spinning {
+            animation: iconSpin 2s ease-in-out;
+        }
+
+        @keyframes iconSpin {
+            0% { transform: rotate(0deg) scale(1); }
+            50% { transform: rotate(180deg) scale(1.5); color: rgba(255, 255, 255, 1); }
+            100% { transform: rotate(360deg) scale(1); }
+        }
+
+        @keyframes float-slow {
+            0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.4; }
+            50% { transform: translateY(-40px) rotate(10deg); opacity: 0.8; }
+        }
+
+        /* Interactive Neural Network */
+        .neural-network {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -4;
+            opacity: 0.1;
+            pointer-events: none;
+        }
+
+        .neural-connection {
+            position: absolute;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(153, 153, 153, 0.5), transparent);
+            transform-origin: left center;
+            transition: all 0.3s ease;
+        }
+
+        .neural-connection.active {
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
+            height: 2px;
+            animation: neuralPulse 1s ease-in-out;
+        }
+
+        @keyframes neuralPulse {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+
+        /* Parallax Effect Enhancement */
+        .parallax-layer {
+            transition: transform 0.1s ease-out;
+        }
+
+        /* Interactive Glow Effects */
+        .glow-effect {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        /* Keyboard Interaction Indicators */
+        .key-indicator {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(26, 26, 26, 0.9);
+            padding: 10px 15px;
+            border-radius: 8px;
+            border: 1px solid rgba(102, 102, 102, 0.3);
+            color: rgba(153, 153, 153, 0.8);
+            font-size: 0.8rem;
+            z-index: 1001;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .key-indicator.show {
+            opacity: 1;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1rem 2rem;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-grey);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--white);
+            letter-spacing: -1px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--lighter-grey);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--white);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--white);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            padding: 0 2rem;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            animation: slideUp 1s ease-out;
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 900;
+            margin-bottom: 1rem;
+            color: var(--white);
+            line-height: 1.1;
+            letter-spacing: -2px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.8rem;
+            color: var(--light-grey);
+            margin-bottom: 2rem;
+            font-weight: 300;
+            animation: slideUp 1s ease-out 0.2s both;
+        }
+
+        .hero-description {
+            font-size: 1.3rem;
+            margin-bottom: 3rem;
+            color: var(--lighter-grey);
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: slideUp 1s ease-out 0.4s both;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            margin-bottom: 3rem;
+            animation: slideUp 1s ease-out 0.5s both;
+            flex-wrap: wrap;
+        }
+
+        .hero-stat {
+            text-align: center;
+            padding: 1.5rem;
+            background: var(--card-bg);
+            border-radius: 15px;
+            border: 1px solid var(--border-grey);
+            backdrop-filter: blur(20px);
+        }
+
+        .hero-stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--white);
+            display: block;
+        }
+
+        .hero-stat-label {
+            color: var(--lighter-grey);
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: slideUp 1s ease-out 0.6s both;
+        }
+
+        .btn {
+            padding: 1.2rem 2.5rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.7rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--white);
+            color: var(--primary-black);
+            transform: translateY(0);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.2);
+            background: var(--accent-white);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--border-grey);
+        }
+
+        .btn-secondary:hover {
+            background: var(--hover-grey);
+            border-color: var(--white);
+            transform: translateY(-3px);
+        }
+
+        /* Sections */
+        section {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 4rem;
+            color: var(--white);
+            letter-spacing: -1px;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .skill-category {
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
+            border-radius: 15px;
+            padding: 2.5rem;
+            border: 1px solid var(--border-grey);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-category::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--white);
+        }
+
+        .skill-category:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            border-color: var(--white);
+        }
+
+        .skill-category h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            color: var(--white);
+            font-weight: 700;
+        }
+
+        .skill-category i {
+            font-size: 1.6rem;
+            color: var(--lighter-grey);
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.7rem;
+        }
+
+        .skill-tag {
+            background: rgba(255, 255, 255, 0.08);
+            color: var(--white);
+            padding: 0.6rem 1.2rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border: 1px solid var(--border-grey);
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: var(--white);
+            transform: scale(1.05);
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+            justify-items: center;
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 3rem;
+            border: 1px solid var(--border-grey);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            max-width: 550px;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.02);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+        }
+
+        .project-card:hover::before {
+            opacity: 1;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+            border-color: var(--white);
+        }
+
+        .project-header {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--gradient-primary);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.2rem;
+            color: var(--white);
+            border: 1px solid var(--border-grey);
+        }
+
+        .project-card h3 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--white);
+        }
+
+        .project-description {
+            color: var(--lighter-grey);
+            margin-bottom: 2rem;
+            line-height: 1.7;
+            font-size: 1.05rem;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin-bottom: 2rem;
+        }
+
+        .tech-tag {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            padding: 0.4rem 1rem;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            border: 1px solid var(--border-grey);
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .project-link {
+            color: var(--white);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            padding: 0.8rem 1.5rem;
+            border: 1px solid var(--border-grey);
+            border-radius: 8px;
+        }
+
+        .project-link:hover {
+            background: var(--hover-grey);
+            transform: translateX(5px);
+            border-color: var(--white);
+        }
+
+        /* Blog Section */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .blog-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 2.5rem;
+            border: 1px solid var(--border-grey);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .blog-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.02);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+        }
+
+        .blog-card:hover::before {
+            opacity: 1;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+            border-color: var(--white);
+        }
+
+        .blog-header {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .blog-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-accent);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: var(--white);
+            border: 1px solid var(--border-grey);
+        }
+
+        .blog-meta {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            color: var(--lighter-grey);
+        }
+
+        .blog-date {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .blog-category {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            padding: 0.3rem 1rem;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            border: 1px solid var(--border-grey);
+        }
+
+        .blog-card h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--white);
+            line-height: 1.4;
+        }
+
+        .blog-excerpt {
+            color: var(--lighter-grey);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .blog-link {
+            color: var(--white);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .blog-link:hover {
+            transform: translateX(5px);
+        }
+
+        .view-all-blogs {
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        .view-all-blogs .btn {
+            background: var(--white);
+            color: var(--primary-black);
+            padding: 1.2rem 2.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.7rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .view-all-blogs .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(255, 255, 255, 0.2);
+            background: var(--accent-white);
+        }
+
+        /* Contact Section */
+        .contact {
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
+            border-radius: 25px;
+            padding: 4rem;
+            text-align: center;
+            border: 1px solid var(--border-grey);
+            margin: 6rem 2rem;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin: 3rem 0;
+            flex-wrap: wrap;
+        }
+
+        .contact-detail {
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            color: var(--lighter-grey);
+            font-size: 1.05rem;
+        }
+
+        .contact-detail i {
+            color: var(--white);
+            font-size: 1.2rem;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            color: var(--white);
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            padding: 1.2rem 2rem;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 10px;
+            border: 1px solid var(--border-grey);
+            transition: all 0.3s ease;
+        }
+
+        .contact-link:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+            border-color: var(--white);
+        }
+
+        .contact-link i {
+            font-size: 1.4rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.4rem;
+            }
+            
+            .hero-stats {
+                gap: 2rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .skills-grid,
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-links {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        /* Scroll animations */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s ease;
+        }
+
+        .animate-on-scroll.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Ultimate Interactive Background -->
+    <div class="bg-container" id="bgContainer"></div>
+    
+    <!-- Advanced Mouse Trail -->
+    <div class="mouse-trail" id="mouseTrail"></div>
+    
+    <!-- Electromagnetic Field -->
+    <div class="electromagnetic-field" id="electromagneticField"></div>
+    
+    <!-- Matrix Rain Effect -->
+    <div class="matrix-rain" id="matrixRain"></div>
+    
+    <!-- Holographic Grid -->
+    <div class="holographic-grid" id="holographicGrid"></div>
+    
+    <!-- Scan Line -->
+    <div class="scan-line" id="scanLine"></div>
+    
+    <!-- Interactive Particles -->
+    <div class="interactive-particles" id="interactiveParticles"></div>
+    
+    <!-- Circuit Board Pattern -->
+    <div class="circuit-pattern" id="circuitPattern"></div>
+    
+    <!-- DevOps Workflow Boxes -->
+    <div class="devops-boxes" id="devopsBoxes"></div>
+    
+    <!-- DevOps Pipeline Graphics -->
+    <div class="devops-graphics" id="devopsGraphics"></div>
+    
+    <!-- AI Integration Background -->
+    <div class="ai-integration-bg" id="aiIntegration"></div>
+    
+    <!-- Neural Network -->
+    <div class="neural-network" id="neuralNetwork"></div>
+    
+    <!-- Tech Flow Lines -->
+    <div class="tech-flow-lines" id="techFlowLines"></div>
+    
+    <!-- Data Nodes -->
+    <div class="data-nodes" id="dataNodes"></div>
+    
+    <!-- Tech Icons Background -->
+    <div class="tech-icons-bg" id="techIcons"></div>
+    
+    <!-- Status Indicators -->
+    <div class="status-indicator" id="statusIndicator">
+        System Active • Interactive Mode
+    </div>
+    
+    <div class="performance-monitor" id="performanceMonitor">
+        FPS: <span id="fpsCounter">60</span> | Particles: <span id="particleCount">150</span>
+    </div>
+    
+    <!-- Keyboard Indicator -->
+    <div class="key-indicator" id="keyIndicator">
+        SPACE: Wave Effects • Double-Click: Supernova • Hold SHIFT: Matrix Mode
+    </div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">RKR</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#blog">Blog</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Rama Krishna Reddy</h1>
+            <p class="hero-subtitle">MLOps Engineer & Cloud Architect</p>
+            <p class="hero-description">
+                DevOps Engineer with 4+ years of experience driving infrastructure automation, 
+                CI/CD, and cloud-native deployments across financial services and enterprise platforms.
+            </p>
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <div class="hero-stat-number">4+</div>
+                    <div class="hero-stat-label">Years Experience</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-number">99.9%</div>
+                    <div class="hero-stat-label">System Uptime</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-number">80%</div>
+                    <div class="hero-stat-label">Setup Time Reduction</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Personal Blog Section -->
+    <section id="blog" class="animate-on-scroll">
+        <h2 class="section-title">Personal Blog</h2>
+        <p style="text-align: center; color: var(--lighter-grey); margin-bottom: 3rem; max-width: 600px; margin-left: auto; margin-right: auto; font-size: 1.1rem;">
+            Sharing insights, experiences, and learnings from my journey in MLOps, cloud technologies, and software engineering.
+        </p>
+        <div class="blog-grid">
+            <div class="blog-card" onclick="window.open('blog.html', '_blank')">
+                <div class="blog-header">
+                    <div class="blog-icon">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <div>
+                        <div class="blog-meta">
+                            <div class="blog-date">
+                                <i class="fas fa-calendar"></i>
+                                <span>Dec 15, 2024</span>
+                            </div>
+                            <span class="blog-category">MLOps</span>
+                        </div>
+                        <h3>Building Scalable ML Pipelines with Apache Airflow</h3>
+                    </div>
+                </div>
+                <p class="blog-excerpt">
+                    A deep dive into how I implemented automated ML workflows at UHCL, reducing manual data preparation by 70% and achieving 87% model accuracy...
+                </p>
+                <a href="blog.html" class="blog-link" target="_blank">
+                    Read More <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+            
+            <div class="blog-card" onclick="window.open('blog.html', '_blank')">
+                <div class="blog-header">
+                    <div class="blog-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div>
+                        <div class="blog-meta">
+                            <div class="blog-date">
+                                <i class="fas fa-calendar"></i>
+                                <span>Nov 28, 2024</span>
+                            </div>
+                            <span class="blog-category">NLP</span>
+                        </div>
+                        <h3>Creating Intelligent Chatbots with spaCy and Flask</h3>
+                    </div>
+                </div>
+                <p class="blog-excerpt">
+                    Lessons learned while building the Virtual Recreation Center Assistant, achieving 90%+ intent recognition accuracy using natural language processing...
+                </p>
+                <a href="blog.html" class="blog-link" target="_blank">
+                    Read More <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+            
+            <div class="blog-card" onclick="window.open('blog.html', '_blank')">
+                <div class="blog-header">
+                    <div class="blog-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div>
+                        <div class="blog-meta">
+                            <div class="blog-date">
+                                <i class="fas fa-calendar"></i>
+                                <span>Nov 10, 2024</span>
+                            </div>
+                            <span class="blog-category">Career</span>
+                        </div>
+                        <h3>My Journey from India to Houston: MS in Software Engineering</h3>
+                    </div>
+                </div>
+                <p class="blog-excerpt">
+                    Reflections on transitioning from working at Bank of America in India to pursuing my Master's degree at University of Houston Clear Lake...
+                </p>
+                <a href="blog.html" class="blog-link" target="_blank">
+                    Read More <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+        
+        <div class="view-all-blogs">
+            <a href="blog.html" class="btn" target="_blank">
+                <i class="fas fa-blog"></i>
+                View All Blog Posts
+            </a>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <div class="contact animate-on-scroll" id="contact">
+        <h2 class="section-title">Let's Connect</h2>
+        <p style="font-size: 1.2rem; color: var(--lighter-grey); margin-bottom: 2rem;">
+            Ready to discuss MLOps strategies, cloud architectures, or exciting opportunities? 
+            I'd love to hear from you!
+        </p>
+        
+        <div class="contact-info">
+            <div class="contact-detail">
+                <i class="fas fa-phone"></i>
+                <span>+1 512-743-3173</span>
+            </div>
+            <div class="contact-detail">
+                <i class="fas fa-envelope"></i>
+                <span>ramakrishnareddy731@gmail.com</span>
+            </div>
+            <div class="contact-detail">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Houston, Texas, USA</span>
+            </div>
+        </div>
+        
+        <div class="contact-links">
+            <a href="mailto:ramakrishnareddy731@gmail.com" class="contact-link">
+                <i class="fas fa-envelope"></i>
+                Email Me
+            </a>
+            <a href="https://github.com/ramakrishna8048" class="contact-link" target="_blank">
+                <i class="fab fa-github"></i>
+                GitHub
+            </a>
+            <a href="https://linkedin.com/in/ramakrishna-reddy" class="contact-link" target="_blank">
+                <i class="fab fa-linkedin"></i>
+                LinkedIn
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // Create comprehensive background graphics
+        function createBackgroundGraphics() {
+            createTechIcons();
+            createDevOpsWorkflow();
+            createAIIntegrationDiagrams();
+            createTechFlowLines();
+            createDataNodes();
+        }
+
+        // Create tech icons background
+        function createTechIcons() {
+            const iconsContainer = document.getElementById('techIcons');
+            const devOpsIcons = [
+                'fab fa-docker', 'fab fa-aws', 'fab fa-github', 'fab fa-jenkins',
+                'fas fa-server', 'fas fa-database', 'fas fa-cloud', 'fas fa-cogs',
+                'fab fa-python', 'fas fa-chart-line', 'fas fa-code-branch', 'fas fa-robot',
+                'fas fa-network-wired', 'fas fa-shield-alt', 'fas fa-laptop-code', 'fas fa-microchip',
+                'fab fa-kubernetes', 'fab fa-gitlab', 'fas fa-brain', 'fas fa-project-diagram'
+            ];
+
+            for (let i = 0; i < 30; i++) {
+                const icon = document.createElement('div');
+                icon.className = 'tech-icon';
+                icon.innerHTML = `<i class="${devOpsIcons[i % devOpsIcons.length]}"></i>`;
+                icon.style.left = Math.random() * 100 + '%';
+                icon.style.top = Math.random() * 100 + '%';
+                icon.style.animationDelay = Math.random() * 25 + 's';
+                icon.style.animationDuration = (Math.random() * 15 + 20) + 's';
+                iconsContainer.appendChild(icon);
+            }
+        }
+
+        // Create DevOps workflow boxes
+        function createDevOpsWorkflow() {
+            const container = document.getElementById('devopsBoxes');
+            const workflowSteps = ['BUILD', 'TEST', 'DEPLOY', 'MONITOR', 'CI/CD', 'SCALE', 'LOG', 'ALERT'];
+            
+            for (let i = 0; i < 15; i++) {
+                const box = document.createElement('div');
+                box.className = 'workflow-box';
+                box.style.left = Math.random() * 95 + '%';
+                box.style.top = Math.random() * 95 + '%';
+                box.style.animationDelay = Math.random() * 15 + 's';
+                box.style.animationDuration = (Math.random() * 10 + 12) + 's';
+                
+                // Add text inside boxes
+                box.innerHTML = `<div style="font-size: 8px; color: rgba(102, 102, 102, 0.6); text-align: center; padding: 12px 4px; font-weight: bold;">${workflowSteps[i % workflowSteps.length]}</div>`;
+                container.appendChild(box);
+            }
+        }
+
+        // Create AI Integration SVG diagrams
+        function createAIIntegrationDiagrams() {
+            const container = document.getElementById('aiIntegration');
+            
+            // Create multiple ML pipeline diagrams
+            for (let i = 0; i < 8; i++) {
+                const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+                svg.setAttribute('class', 'ml-pipeline');
+                svg.style.left = Math.random() * 80 + '%';
+                svg.style.top = Math.random() * 80 + '%';
+                svg.style.animationDelay = Math.random() * 10 + 's';
+                svg.style.transform = `rotate(${Math.random() * 360}deg)`;
+                
+                // Create ML pipeline flow
+                svg.innerHTML = `
+                    <defs>
+                        <marker id="arrowhead${i}" markerWidth="10" markerHeight="7" 
+                         refX="9" refY="3.5" orient="auto">
+                            <polygon points="0 0, 10 3.5, 0 7" fill="rgba(153, 153, 153, 0.4)" />
+                        </marker>
+                    </defs>
+                    <!-- Data flow pipeline -->
+                    <path d="M 20,75 Q 50,25 100,75 T 200,75" stroke="rgba(153, 153, 153, 0.4)" 
+                          stroke-width="2" fill="none" marker-end="url(#arrowhead${i})"/>
+                    <path d="M 100,75 Q 150,50 200,25" stroke="rgba(102, 102, 102, 0.3)" 
+                          stroke-width="1" fill="none"/>
+                    <path d="M 100,75 Q 150,100 200,125" stroke="rgba(102, 102, 102, 0.3)" 
+                          stroke-width="1" fill="none"/>
+                    
+                    <!-- Neural network nodes -->
+                    <circle cx="50" cy="50" r="4" fill="none" stroke="rgba(153, 153, 153, 0.4)" stroke-width="1"/>
+                    <circle cx="100" cy="75" r="6" fill="none" stroke="rgba(153, 153, 153, 0.5)" stroke-width="1"/>
+                    <circle cx="150" cy="100" r="4" fill="none" stroke="rgba(153, 153, 153, 0.4)" stroke-width="1"/>
+                    <circle cx="200" cy="75" r="5" fill="none" stroke="rgba(153, 153, 153, 0.4)" stroke-width="1"/>
+                `;
+                
+                container.appendChild(svg);
+            }
+        }
+
+        // Create tech flow lines
+        function createTechFlowLines() {
+            const container = document.getElementById('techFlowLines');
+            
+            // Horizontal flow lines
+            for (let i = 0; i < 12; i++) {
+                const line = document.createElement('div');
+                line.className = 'flow-line';
+                line.style.left = Math.random() * 60 + '%';
+                line.style.top = Math.random() * 100 + '%';
+                line.style.width = (Math.random() * 200 + 100) + 'px';
+                line.style.animationDelay = Math.random() * 8 + 's';
+                line.style.animationDuration = (Math.random() * 4 + 6) + 's';
+                container.appendChild(line);
+            }
+            
+            // Vertical flow lines
+            for (let i = 0; i < 8; i++) {
+                const line = document.createElement('div');
+                line.className = 'flow-line vertical';
+                line.style.left = Math.random() * 100 + '%';
+                line.style.top = Math.random() * 60 + '%';
+                line.style.height = (Math.random() * 150 + 100) + 'px';
+                line.style.animationDelay = Math.random() * 8 + 's';
+                line.style.animationDuration = (Math.random() * 4 + 6) + 's';
+                container.appendChild(line);
+            }
+        }
+
+        // Create data processing nodes
+        function createDataNodes() {
+            const container = document.getElementById('dataNodes');
+            
+            for (let i = 0; i < 25; i++) {
+                const node = document.createElement('div');
+                node.className = 'data-node';
+                node.style.left = Math.random() * 95 + '%';
+                node.style.top = Math.random() * 95 + '%';
+                node.style.animationDelay = Math.random() * 6 + 's';
+                node.style.animationDuration = (Math.random() * 3 + 4) + 's';
+                
+                // Add different node types
+                if (i % 3 === 0) {
+                    node.style.borderRadius = '2px';
+                    node.style.transform = 'rotate(45deg)';
+                } else if (i % 3 === 1) {
+                    node.style.width = '6px';
+                    node.style.height = '12px';
+                    node.style.borderRadius = '3px';
+                }
+                
+                container.appendChild(node);
+            }
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Animate elements on scroll
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.animate-on-scroll');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animated');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            elements.forEach(element => {
+                observer.observe(element);
+            });
+        }
+
+        // Enhanced navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.style.background = 'rgba(0, 0, 0, 0.98)';
+                nav.style.borderBottom = '1px solid rgba(255, 255, 255, 0.2)';
+            } else {
+                nav.style.background = 'rgba(0, 0, 0, 0.95)';
+                nav.style.borderBottom = '1px solid rgba(255, 255, 255, 0.1)';
+            }
+        });
+
+        // Initialize everything when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            createBackgroundGraphics();
+            animateOnScroll();
+        });
+
+        // Enhanced interactivity for skill and tech tags
+        document.querySelectorAll('.skill-tag, .tech-tag').forEach(tag => {
+            tag.addEventListener('mouseenter', function() {
+                this.style.transform = 'scale(1.08) translateY(-2px)';
+                this.style.boxShadow = '0 5px 15px rgba(255, 255, 255, 0.1)';
+            });
+            
+            tag.addEventListener('mouseleave', function() {
+                this.style.transform = 'scale(1) translateY(0)';
+                this.style.boxShadow = 'none';
+            });
+        });
+
+        // Professional typing effect for hero subtitle
+        function typeWriter(element, text, speed = 100) {
+            let i = 0;
+            element.innerHTML = '';
+            function type() {
+                if (i < text.length) {
+                    element.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(type, speed);
+                }
+            }
+            type();
+        }
+
+        // Initialize typing effect with delay
+        setTimeout(() => {
+            const subtitle = document.querySelector('.hero-subtitle');
+            const originalText = subtitle.textContent;
+            typeWriter(subtitle, originalText, 80);
+        }, 1200);
+
+        // Add subtle parallax effect to hero section
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero-content');
+            if (hero && scrolled < window.innerHeight) {
+                hero.style.transform = `translateY(${scrolled * 0.3}px)`;
+                hero.style.opacity = 1 - scrolled / window.innerHeight;
+            }
+        });
+
+        // Add hover effects to cards
+        document.querySelectorAll('.skill-category, .project-card, .blog-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-12px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Add loading animation
+        window.addEventListener('load', () => {
+            document.body.style.opacity = '0';
+            setTimeout(() => {
+                document.body.style.transition = 'opacity 0.5s ease';
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+    </script>
+</body>
+</html>
+            <div class="cta-buttons">
+                <a href="#projects" class="btn btn-primary">
+                    <i class="fas fa-rocket"></i>
+                    View Projects
+                </a>
+                <a href="#contact" class="btn btn-secondary">
+                    <i class="fas fa-envelope"></i>
+                    Get In Touch
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="animate-on-scroll">
+        <h2 class="section-title">Technical Expertise</h2>
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h3><i class="fas fa-code"></i> Infrastructure as Code</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Terraform</span>
+                    <span class="skill-tag">AWS CloudFormation</span>
+                    <span class="skill-tag">Ansible</span>
+                </div>
+            </div>
+            
+            <div class="skill-category">
+                <h3><i class="fas fa-cloud"></i> Cloud Platforms</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">AWS EC2</span>
+                    <span class="skill-tag">S3</span>
+                    <span class="skill-tag">RDS</span>
+                    <span class="skill-tag">Lambda</span>
+                    <span class="skill-tag">IAM</span>
+                    <span class="skill-tag">VPC</span>
+                    <span class="skill-tag">EventBridge</span>
+                    <span class="skill-tag">API Gateway</span>
+                </div>
+            </div>
+            
+            <div class="skill-category">
+                <h3><i class="fas fa-cogs"></i> CI/CD & DevOps</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Jenkins</span>
+                    <span class="skill-tag">GitHub Actions</span>
+                    <span class="skill-tag">GitLab CI</span>
+                    <span class="skill-tag">Docker</span>
+                    <span class="skill-tag">Kubernetes</span>
+                    <span class="skill-tag">Helm</span>
+                </div>
+            </div>
+            
+            <div class="skill-category">
+                <h3><i class="fas fa-chart-line"></i> Monitoring & Observability</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Prometheus</span>
+                    <span class="skill-tag">Grafana</span>
+                    <span class="skill-tag">AWS CloudWatch</span>
+                    <span class="skill-tag">SNS</span>
+                    <span class="skill-tag">CloudTrail</span>
+                </div>
+            </div>
+            
+            <div class="skill-category">
+                <h3><i class="fas fa-database"></i> Databases & Storage</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">PostgreSQL</span>
+                    <span class="skill-tag">MySQL</span>
+                    <span class="skill-tag">Amazon RDS</span>
+                    <span class="skill-tag">Redis</span>
+                </div>
+            </div>
+            
+            <div class="skill-category">
+                <h3><i class="fas fa-robot"></i> ML & Automation</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Apache Airflow</span>
+                    <span class="skill-tag">MLflow</span>
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">Bash</span>
+                    <span class="skill-tag">scikit-learn</span>
+                    <span class="skill-tag">spaCy</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="animate-on-scroll">
+        <h2 class="section-title">Featured Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="project-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h3>JobFlow-AI</h3>
+                </div>
+                <p class="project-description">
+                    Responsive single-page application for job application management with advanced filtering 
+                    and analytics dashboard. Features cost-effective infrastructure using Terraform with AWS 
+                    Free Tier services and automated deployment pipeline with Jenkins.
+                </p>
+                <div class="project-tech">
+                    <span class="tech-tag">Vue.js</span>
+                    <span class="tech-tag">Nuxt.js</span>
+                    <span class="tech-tag">TypeScript</span>
+                    <span class="tech-tag">Terraform</span>
+                    <span class="tech-tag">AWS S3</span>
+                    <span class="tech-tag">Jenkins</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/ramakrishna8048/JobFlow-AI" class="project-link" target="_blank">
+                        <i class="fab fa-github"></i>
+                        View Code
+                    </a>
+                </div>
+            </div>
+            
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="project-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>Virtual Recreation Center Assistant</h3>
+                </div>
+                <p class="project-description">
+                    Intelligent NLP chatbot built with Flask and spaCy, processing natural language queries 
+                    with 90%+ intent recognition accuracy. Features modern responsive chat interface, 
+                    real-time responses, and comprehensive recreation center assistance capabilities.
+                </p>
+                <div class="project-tech">
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">Flask</span>
+                    <span class="tech-tag">spaCy</span>
+                    <span class="tech-tag">NLP</span>
+                    <span class="tech-tag">JavaScript</span>
+                    <span class="tech-tag">Docker</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/ramakrishna8048/Virtual-Recreation-center" class="project-link" target="_blank">
+                        <i class="fab fa-github"></i>
+                        View Code
+                    </a>
+                </div>
+            </div>
